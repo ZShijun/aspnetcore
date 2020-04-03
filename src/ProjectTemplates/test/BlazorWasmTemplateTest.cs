@@ -408,6 +408,7 @@ namespace Templates.Test
                 ErrorMessages.GetFailedProcessMessageOrEmpty("Run built project", project, aspNetProcess.Process));
 
             await aspNetProcess.AssertStatusCode("/", HttpStatusCode.OK, "text/html");
+            // We only do brotli precompression for published apps
             await AssertCompressionFormat(aspNetProcess, "gzip");
             if (BrowserFixture.IsHostAutomationSupported())
             {
