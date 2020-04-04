@@ -29,7 +29,7 @@ namespace Microsoft.AspNetCore.Components.WebAssembly.Build.BrotliCompression
 
             var manifest = await JsonSerializer.DeserializeAsync<ManifestData>(manifestStream);
             var result = 0;
-            Parallel.ForEach(manifest.FilesToCompress, async (file) =>
+            Parallel.ForEach(manifest.FilesToCompress, (file) =>
             {
                 var inputPath = file.Source;
                 var inputSource = file.InputSource;
@@ -58,7 +58,7 @@ namespace Microsoft.AspNetCore.Components.WebAssembly.Build.BrotliCompression
                     using var fileStream = new FileStream(targetCompressionPath, FileMode.Create);
                     using var stream = new BrotliStream(fileStream, CompressionLevel.Optimal);
 
-                    await sourceStream.CopyToAsync(stream);
+                    sourceStream.CopyTo(stream);
                 }
                 catch (Exception e)
                 {

@@ -53,7 +53,7 @@
     <ItemGroup>
       <_BlazorCopyLocalAssets
         Include="@(StaticWebAsset)"
-        Condition="'%(SourceType)' == '' and '%(ContentRoot)' != '$(_BlazorCurrentProjectWWWroot)' and !$([System.String]::Copy('%(RelativePath)').EndsWith('.br'))" />
+        Condition="'%(SourceType)' == '' and '%(ContentRoot)' != '$(_BlazorCurrentProjectWWWroot)' and (!$([System.String]::Copy('%(RelativePath)').EndsWith('.br')) or '$(BlazorBrotliOnBuild)' == 'true')" />
       <_BlazorCopyLocalAssets Remove="@(_BlazorCopyLocalExclusion)" />
     </ItemGroup>
 

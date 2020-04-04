@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
     <ReferenceBlazorBuildLocally>true</ReferenceBlazorBuildLocally>
+    <BlazorBrotliOnBuild>true</BlazorBrotliOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
