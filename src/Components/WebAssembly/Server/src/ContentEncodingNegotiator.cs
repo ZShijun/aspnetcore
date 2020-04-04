@@ -67,7 +67,7 @@ namespace Microsoft.AspNetCore.Components.WebAssembly.Server
                     {
                         selectedEncoding = PickPreferredEncoding(context, selectedEncoding, encoding);
                     }
-                    else if (_encodingExtensionMap.TryGetValue(encodingName, out var encodingExtension) && ResourceExists(context, _encodingExtensionMap[encodingExtension]))
+                    else if (_encodingExtensionMap.TryGetValue(encodingName, out var encodingExtension) && ResourceExists(context, encodingExtension))
                     {
                         selectedEncoding = encodingName;
                         selectedEncodingQuality = quality;
